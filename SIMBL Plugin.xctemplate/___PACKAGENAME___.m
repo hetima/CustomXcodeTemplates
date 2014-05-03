@@ -14,11 +14,12 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
 
 + (BOOL)shouldLoadPlugin
 {
+/*
     NSString *appBundleIdentifier = [[NSBundle mainBundle]bundleIdentifier];
     if (![appBundleIdentifier isEqualToString:@"___VARIABLE_targetApp:identifier___"]){
         return NO;
     }
-    
+*/
     // check something
     
     return YES;
