@@ -10,7 +10,7 @@ Project template for Xcode5 xcplugin. Based on [kattrali/Xcode5-Plugin-Template]
 
 Project template for SIMBL plugin.
 
-
+##Options
 
 These plugin templates have two additional options.
 
