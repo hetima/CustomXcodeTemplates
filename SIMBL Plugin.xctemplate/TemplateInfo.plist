@@ -9,7 +9,7 @@
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
-	<string>This template builds an SIMBL plugin.</string>
+	<string>This template builds a SIMBL plugin.</string>
 	<key>Platforms</key>
 	<array>
 		<string>com.apple.platform.macosx</string>
