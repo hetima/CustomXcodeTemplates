@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.hetima.gitignore</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>com_hetima_gitignore_generate</string>
+			<key>Name</key>
+			<string>Create .gitignore</string>
+			<key>Description</key>
+			<string>Create .gitignore at project root directry</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Values</key>
+			<array>
+				<string>None</string>
+				<string>Standard</string>
+			</array>
+			<key>SortOrder</key>
+			<integer>1</integer>
+			<key>Default</key>
+			<string>None</string>
+			<key>Units</key>
+			<dict>
+				<key>None</key>
+				<array>
+					<dict/>
+				</array>
+				<key>Standard</key>
+				<array>
+					<dict>
+						<key>Nodes</key>
+						<array>
+							<string>../.gitignore</string>
+						</array>
+						<key>Definitions</key>
+						<dict>
+							<key>../.gitignore</key>
+							<dict>
+								<key>Path</key>
+								<string>Standard.gitignore</string>
+								<key>Group</key>
+								<string>Supporting Files</string>
+								<key>TargetIndices</key>
+								<array/>
+							</dict>
+						</dict>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
