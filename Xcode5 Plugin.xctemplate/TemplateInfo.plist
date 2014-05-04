@@ -20,7 +20,6 @@
 		<string>com.apple.dt.unit.macBase</string>
 		<string>com.apple.dt.unit.prefixable</string>
 		<string>com.hetima.KZRMethodSwizzlingPCH</string>
-		<string>com.hetima.gitignore</string>
 	</array>
 	<key>Targets</key>
 	<array>

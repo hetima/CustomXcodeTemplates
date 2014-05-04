@@ -6,6 +6,10 @@
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Identifier</key>
 	<string>com.hetima.gitignore</string>
+	<key>InjectionTargets</key>
+	<array>
+		<string>com.apple.dt.unit.base</string>
+	</array>
 	<key>Options</key>
 	<array>
 		<dict>
@@ -23,7 +27,7 @@
 				<string>Standard</string>
 			</array>
 			<key>SortOrder</key>
-			<integer>1</integer>
+			<integer>9999</integer>
 			<key>Default</key>
 			<string>None</string>
 			<key>Units</key>
