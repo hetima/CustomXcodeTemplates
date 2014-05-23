@@ -16,7 +16,7 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
 {
 /*
     NSString *appBundleIdentifier = [[NSBundle mainBundle]bundleIdentifier];
-    if (![appBundleIdentifier isEqualToString:@"___VARIABLE_targetApp:identifier___"]){
+    if (![appBundleIdentifier isEqualToString:@"___VARIABLE_SIMBLTargetApp___"]){
         return NO;
     }
 */
