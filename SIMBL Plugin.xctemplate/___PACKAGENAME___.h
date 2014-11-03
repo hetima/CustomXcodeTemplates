@@ -1,5 +1,5 @@
 //
-//  ___VARIABLE_classPrefix:identifier______PACKAGENAME___.h
+//  ___FILENAME___
 //  ___PACKAGENAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -11,3 +11,4 @@
 @interface ___VARIABLE_classPrefix:identifier______PACKAGENAME___ : NSObject
 
 @end
+

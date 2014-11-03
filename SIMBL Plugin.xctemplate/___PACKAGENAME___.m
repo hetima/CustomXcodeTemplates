@@ -1,5 +1,5 @@
 //
-//  ___VARIABLE_classPrefix:identifier______PACKAGENAME___.m
+//  ___FILENAME___
 //  ___PACKAGENAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -11,6 +11,7 @@
 static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
 
 @implementation ___VARIABLE_classPrefix:identifier______PACKAGENAME___
+
 
 + (BOOL)shouldLoadPlugin
 {
@@ -25,6 +26,7 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
     return YES;
 }
 
+
 +(void)install
 {
     static dispatch_once_t onceToken;
@@ -37,19 +39,15 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
     }
 }
 
+
 - (instancetype)init
 {
     if (self = [super init]) {
 
         
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appWillTerminate:) name:NSApplicationWillTerminateNotification object:nil];
     }
     return self;
 }
 
-- (void)appWillTerminate:(NSNotification*)note
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
 
 @end

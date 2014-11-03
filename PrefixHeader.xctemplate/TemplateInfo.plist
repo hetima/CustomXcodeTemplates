@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.hetima.PrefixHeader</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>com_hetima_prefix_header_use</string>
+			<key>SortOrder</key>
+			<integer>8800</integer>
+			<key>Name</key>
+			<string>Use Prefix Header</string>
+			<key>Description</key>
+			<string>set GCC_PREFIX_HEADER and GCC_PRECOMPILE_PREFIX_HEADER</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<array>
+					<dict>
+                        <key>Targets</key>
+                    	<array>
+                    		<dict>
+                    			<key>SharedSettings</key>
+                    			<dict>
+                                    <key>GCC_PREFIX_HEADER</key>
+                                    <string>___PACKAGENAME___/___PACKAGENAME___-Prefix.pch</string>
+                                    <key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+                                    <string>YES</string>
+                    			</dict>
+                    		</dict>
+                    	</array>
+
+                        <key>Nodes</key>
+                    	<array>
+                    		<string>___PACKAGENAME___-Prefix.pch:objC</string>
+                    	</array>
+                
+                        <key>Definitions</key>
+                    	<dict>
+                    		<key>___PACKAGENAME___-Prefix.pch</key>
+                    		<dict>
+                    			<key>Beginning</key>
+                    			<string>//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+</string>
+                    			<key>Group</key>
+                    			<string>Supporting Files</string>
+                    			<key>TargetIndices</key>
+                    			<array />
+                    		</dict>
+                    		<key>___PACKAGENAME___-Prefix.pch:objC</key>
+                    		<dict>
+                    			<key>Beginning</key>
+                    			<string>#ifdef __OBJC__
+
+</string>
+                    			<key>End</key>
+                    			<string>
+
+#endif</string>
+                    			<key>Indent</key>
+                    			<integer>0</integer>
+                    		</dict>
+
+                    	</dict>
+                    </dict>
+        		</array>
+				
+				
+				
+				<key>false</key>
+				<array />
+			</dict>
+		</dict>
+
+		<dict>
+			<key>Identifier</key>
+			<string>com_hetima_debugNSLogPCH_use</string>
+			<key>SortOrder</key>
+			<integer>8801</integer>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>com_hetima_prefix_header_use</key>
+				<string>true</string>
+			</dict>
+			<key>NotPersisted</key>
+			<false />
+			<key>Name</key>
+			<string>  #define LOG(...)</string>
+			<key>Description</key>
+			<string>define Debug Log macro in pch</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<array>
+					<dict>
+                        <key>Nodes</key>
+                    	<array>
+                    		<string>___PACKAGENAME___-Prefix.pch:objC:debugNSLog</string>
+                        </array>
+						<key>Definitions</key>
+						<dict>
+							<key>___PACKAGENAME___-Prefix.pch:objC:debugNSLog</key>
+							<string>#ifdef DEBUG
+#define LOG(...) NSLog(__VA_ARGS__)
+#else
+#define LOG(...) 
+#endif
+
+</string>
+						</dict>
+					</dict>
+				</array>
+				<key>false</key>
+				<array />
+			</dict>
+		</dict>
+
+		<dict>
+			<key>Identifier</key>
+			<string>com_hetima_KZRMethodSwizzlingPCH_use</string>
+			<key>SortOrder</key>
+			<integer>8802</integer>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>com_hetima_prefix_header_use</key>
+				<string>true</string>
+			</dict>
+			<key>NotPersisted</key>
+			<true />
+			<key>Name</key>
+			<string>  #define KZRMethodSwizzling</string>
+			<key>Description</key>
+			<string>define KZRMETHOD_SWIZZLING_WITHBLOCK macro in pch</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<array>
+					<dict>
+					
+                        <key>Nodes</key>
+                    	<array>
+                    		<string>___PACKAGENAME___-Prefix.pch:objC:defineKZRMethodSwizzling</string>
+                        </array>
+						<key>Definitions</key>
+						<dict>
+							<key>___PACKAGENAME___-Prefix.pch:objC:defineKZRMethodSwizzling</key>
+							<string>#import &lt;objc/message.h&gt;
+
+// v3
+enum {
+    KZRMethodSwizzlingNoError=0,
+    KZRMethodSwizzlingErrorClassNotFound=1,
+    KZRMethodSwizzlingErrorMethodNotFound=2,
+    
+    KZRMethodSwizzlingErrorFailedToAddMethod=3
+};
+
+#define KZRMETHOD_SWIZZLING_(className, selectorName, returnType, originalIMP, originalSelector) ({\
+NSInteger _val_err=KZRMethodSwizzlingNoError; \
+BOOL _val_isClassMethod=NO; \
+const char* _val_selName=selectorName; \
+if(*_val_selName=='+'){_val_isClassMethod=YES; _val_selName++;} \
+Class _val_cls=objc_getClass(className); \
+if (_val_cls){ \
+SEL originalSelector=sel_registerName(_val_selName); \
+Method _val_originalMethod; \
+if (_val_isClassMethod)_val_originalMethod = class_getClassMethod(_val_cls, originalSelector); \
+else _val_originalMethod = class_getInstanceMethod(_val_cls, originalSelector); \
+returnType(*originalIMP)(id, SEL, ...) = (returnType(*)(id, SEL, ...))method_getImplementation(_val_originalMethod); \
+if (originalIMP) { id _val_block=
+
+#define _WITHBLOCK ;IMP _val_newImp = imp_implementationWithBlock(_val_block); \
+method_setImplementation(_val_originalMethod, _val_newImp); \
+}else{_val_err=KZRMethodSwizzlingErrorMethodNotFound;} \
+}else{_val_err=KZRMethodSwizzlingErrorClassNotFound;} \
+_val_err; \
+})
+
+// adding
+#define KZRMETHOD_ADDING_(className, superClassName, selectorName, returnType, superIMP, originalSelector) ({\
+NSInteger _val_adding_err=KZRMethodSwizzlingNoError; \
+BOOL _val_isClassMethod=NO; \
+const char* _val_selName=selectorName; \
+if(*_val_selName=='+'){_val_isClassMethod=YES; _val_selName++;} \
+Class _val_target_cls=objc_getClass(className); \
+Class _val_cls=objc_getClass(superClassName); \
+if (_val_cls &amp;&amp; _val_target_cls){ \
+SEL originalSelector=sel_registerName(_val_selName); \
+SEL _val_selector=originalSelector; \
+Method _val_originalMethod; \
+if (_val_isClassMethod)_val_originalMethod = class_getClassMethod(_val_cls, originalSelector); \
+else _val_originalMethod = class_getInstanceMethod(_val_cls, originalSelector); \
+returnType(*superIMP)(id, SEL, ...) = (returnType(*)(id, SEL, ...))method_getImplementation(_val_originalMethod); \
+if (superIMP) { id _val_block=
+
+#define _WITHBLOCK_ADD ;IMP _val_newImp = imp_implementationWithBlock(_val_block); \
+if(!class_addMethod(_val_target_cls, _val_selector, _val_newImp, method_getTypeEncoding(_val_originalMethod))){ \
+_val_adding_err=KZRMethodSwizzlingErrorFailedToAddMethod;} \
+}else{_val_adding_err=KZRMethodSwizzlingErrorMethodNotFound;} \
+}else{_val_adding_err=KZRMethodSwizzlingErrorClassNotFound;} \
+_val_adding_err; \
+})
+
+</string>
+						</dict>
+					</dict>
+				</array>
+				<key>false</key>
+				<array />
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

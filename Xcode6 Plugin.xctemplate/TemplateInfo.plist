@@ -5,11 +5,11 @@
 	<key>Kind</key>
 	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
 	<key>Identifier</key>
-	<string>com.hetima.Xcode5PluginBase</string>
+	<string>com.hetima.Xcode6PluginBase</string>
 	<key>Concrete</key>
 	<true/>
 	<key>Description</key>
-	<string>This template builds an Xcode5-compatible plugin.</string>
+	<string>This template builds an Xcode6-compatible plugin.</string>
 	<key>Platforms</key>
 	<array>
 		<string>com.apple.platform.macosx</string>
@@ -17,9 +17,9 @@
 	<key>Ancestors</key>
 	<array>
 		<string>com.apple.dt.unit.bundleBase</string>
-		<string>com.apple.dt.unit.macBase</string>
-		<string>com.apple.dt.unit.prefixable</string>
-		<string>com.hetima.KZRMethodSwizzlingPCH</string>
+		<string>com.apple.dt.unit.osxBase</string>
+		<string>com.hetima.ClassPrefix</string>
+		<string>com.hetima.PrefixHeader</string>
 	</array>
 	<key>Targets</key>
 	<array>
@@ -65,9 +65,9 @@
 	<array>
 		<string>___VARIABLE_classPrefix:identifier______PACKAGENAME___.h</string>
 		<string>___VARIABLE_classPrefix:identifier______PACKAGENAME___.m</string>
-		<string>___PACKAGENAME___-Prefix.pch:objC:importCocoa</string>
-		<string>___PACKAGENAME___-Prefix.pch:objC:defineKZRMethodSwizzling</string>
-		<string>___PACKAGENAME___-Info.plist:bundle</string>
+		<string>Info.plist:xcplugin</string>
+		<string>Info.plist:DVTPlugInCompatibilityUUIDs:Xcode61</string>
+		<string>Info.plist:DVTPlugInCompatibilityUUIDs:Xcode51</string>
 	</array>
 	<key>Definitions</key>
 	<dict>
@@ -81,25 +81,13 @@
 			<key>Path</key>
 			<string>___PACKAGENAME___.m</string>
 		</dict>
-		<key>___PACKAGENAME___-Info.plist:bundle</key>
+		<key>Info.plist:xcplugin</key>
 		<string>&lt;key&gt;CFBundleDevelopmentRegion&lt;/key&gt;
 &lt;string&gt;English&lt;/string&gt;
-&lt;key&gt;CFBundleExecutable&lt;/key&gt;
-&lt;string&gt;${EXECUTABLE_NAME}&lt;/string&gt;
-&lt;key&gt;CFBundleName&lt;/key&gt;
-&lt;string&gt;${PRODUCT_NAME}&lt;/string&gt;
 &lt;key&gt;CFBundleIconFile&lt;/key&gt;
 &lt;string&gt;&lt;/string&gt;
-&lt;key&gt;CFBundleInfoDictionaryVersion&lt;/key&gt;
-&lt;string&gt;6.0&lt;/string&gt;
 &lt;key&gt;CFBundlePackageType&lt;/key&gt;
 &lt;string&gt;BNDL&lt;/string&gt;
-&lt;key&gt;CFBundleSignature&lt;/key&gt;
-&lt;string&gt;????&lt;/string&gt;
-&lt;key&gt;CFBundleVersion&lt;/key&gt;
-&lt;string&gt;1&lt;/string&gt;
-&lt;key&gt;CFBundleShortVersionString&lt;/key&gt;
-&lt;string&gt;1.0&lt;/string&gt;
 &lt;key&gt;XCGCReady&lt;/key&gt;
 &lt;false/&gt;
 &lt;key&gt;XCPluginHasUI&lt;/key&gt;
@@ -110,12 +98,66 @@
 &lt;true/&gt;
 &lt;key&gt;NSPrincipalClass&lt;/key&gt;
 &lt;string&gt;___VARIABLE_classPrefix:identifier______PACKAGENAME___&lt;/string&gt;
-&lt;key&gt;DVTPlugInCompatibilityUUIDs&lt;/key&gt;
+</string>
+		<key>Info.plist:DVTPlugInCompatibilityUUIDs</key>
+		<dict>
+			<key>Beginning</key>
+			<string>&lt;key&gt;DVTPlugInCompatibilityUUIDs&lt;/key&gt;
 &lt;array&gt;
-&lt;string&gt;640F884E-CE55-4B40-87C0-8869546CAB7A&lt;/string&gt;
-&lt;string&gt;37B30044-3B14-46BA-ABAA-F01000C27B63&lt;/string&gt;
-&lt;string&gt;A2E4D43F-41F4-4FB9-BB94-7177011C9AED&lt;/string&gt;
-&lt;/array&gt;</string>
+</string>
+			<key>End</key>
+			<string>&lt;/array&gt;</string>
+			<key>Indent</key>
+			<integer>1</integer>
+		</dict>
+		<key>Info.plist:DVTPlugInCompatibilityUUIDs:Xcode61</key>
+		<string>&lt;string&gt;C4A681B0-4A26-480E-93EC-1218098B9AA0&lt;/string&gt;</string>
 	</dict>
+
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>com_hetima_Xcode6PluginBase_support51</string>
+			<key>SortOrder</key>
+			<integer>10</integer>
+			<key>Name</key>
+			<string>Xcode 5.1 Compatibility</string>
+			<key>Description</key>
+			<string>add DVTPlugInCompatibilityUUID of Xcode 5.1</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>Units</key>
+			<dict>
+				<key>true</key>
+				<array>
+					<dict>
+						<key>Definitions</key>
+						<dict>
+							<key>Info.plist:DVTPlugInCompatibilityUUIDs:Xcode51</key>
+							<string>&lt;string&gt;A2E4D43F-41F4-4FB9-BB94-7177011C9AED&lt;/string&gt;</string>
+						</dict>
+					</dict>
+				</array>
+				<key>false</key>
+				<array>
+					<dict>
+						<key>Definitions</key>
+						<dict>
+							<key>Info.plist:DVTPlugInCompatibilityUUIDs:Xcode51</key>
+							<string></string>
+						</dict>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+		
+
+
+	</array>
+
+
 </dict>
 </plist>

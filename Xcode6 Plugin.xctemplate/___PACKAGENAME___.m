@@ -1,5 +1,5 @@
 //
-//  ___VARIABLE_classPrefix:identifier______PACKAGENAME___.m
+//  ___FILENAME___
 //  ___PACKAGENAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -10,11 +10,6 @@
 
 static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
 
-@interface ___VARIABLE_classPrefix:identifier______PACKAGENAME___()
-
-@property (nonatomic, strong) NSBundle *bundle;
-
-@end
 
 @implementation ___VARIABLE_classPrefix:identifier______PACKAGENAME___
 
@@ -30,6 +25,7 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
     return YES;
 }
 
+
 + (void)pluginDidLoad:(NSBundle *)plugin
 {
     static dispatch_once_t onceToken;
@@ -41,6 +37,7 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
         NSLog(@"___PACKAGENAME___ was not loaded. shouldLoadPlugin==NO");
     }
 }
+
 
 - (instancetype)initWithBundle:(NSBundle *)plugin
 {
