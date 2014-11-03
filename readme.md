@@ -7,6 +7,8 @@ Project template for Xcode 6.0 and 6.1 xcplugin.
 This template generates project which supports Xcode 6.x only by default.  
 It has "Xcode 5.1 Compatibility" option which writes compatibility UUID on `Info.plist`.
 
+![Xcode6 Plugin.xctemplate Screenshot](http://hetima.com/tmp/CustomXcodeTemplates.png)
+
 ##SIMBL Plugin.xctemplate
 
 Project template for SIMBL plugin.
