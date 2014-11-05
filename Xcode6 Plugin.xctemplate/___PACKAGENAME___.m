@@ -41,11 +41,23 @@ static ___VARIABLE_classPrefix:identifier______PACKAGENAME___ *sharedPlugin;
 
 - (instancetype)initWithBundle:(NSBundle *)plugin
 {
-    if (self = [super init]) {
-        // reference to plugin's bundle, for resource acccess
-        _bundle = plugin;
-    }
+    self = [super init];
+    if (!self) return nil;
+
+    _bundle = plugin;
+    
+    //
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(applicationDidFinishLaunching:) name:NSApplicationDidFinishLaunchingNotification object:nil];
+
     return self;
+}
+
+
+- (void)applicationDidFinishLaunching:(NSNotification*)note
+{
+    
 }
 
 @end
